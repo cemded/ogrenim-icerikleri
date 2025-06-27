@@ -1,0 +1,73 @@
+class marketurun:
+    def __init__(self,isim,fiyat,kg):
+        self.isim=isim
+        self.fiyat=fiyat
+        self.kg=kg
+    def toplamfiyat(self):
+        return self.fiyat*self.kg
+class kupon:
+    def __init__(self,kod,oran,tarih):
+        self.kod=kod
+        self.oran=oran
+        self.tarih=tarih
+k1=kupon("k1",0.8,"02/01/2026")
+k2=kupon("k2",0.6,"02/01/2026")
+k3=kupon("k3",0.7,"02/01/2026")
+urun1=marketurun("muz",100,1)
+urun2=marketurun("et",250,2)
+urun3=marketurun("kahve",200,1)
+
+class marketaraba:
+    kuponliste=[k1,k2,k3]
+    def __init__(self,liste):
+        self.liste=liste
+    def urunekle(self,urun):
+        self.liste.append(urun)
+    def urunlerigoster(self):
+        for x in self.liste:
+            print(f"{x.isim} - {x.fiyat} TL")
+    def urunkaldir(self,urun):
+        self.liste=[x for x in self.liste if x!=urun]
+    def temizle(self):
+        self.liste=[]
+    @classmethod
+    def kuponlar_al(cls):
+        return[x.kod for x in cls.kuponliste]
+    @classmethod
+    def kupon_al(cls,kod):
+        return next( filter(lambda x : x.kod==kod,marketaraba.kuponliste),None)
+    
+    
+    def indirim_tek_urun(self, kod, urun_adi):
+        if kod not in marketaraba.kuponlar_al():
+            raise ValueError(f"Geçersiz kupon kodu: {kod}")
+        kupon = marketaraba.kupon_al(kod)
+        for urun in self.liste:
+            if urun.isim.lower() == urun_adi.lower():
+                urun.fiyat *= kupon.oran
+                print(f"{urun_adi} ürününe %{int(kupon.oran * 100)} indirim uygulandı.")
+                return
+        print(f"{urun_adi} adlı ürün bulunamadı.")
+    
+    def toplamfiyat(self):
+     return sum(x.toplamfiyat() for x in self.liste)
+
+
+
+araba = marketaraba([urun1, urun2, urun3])
+
+print("\nSepetinizdeki ürünler:")
+araba.urunlerigoster()
+
+kupon_kodu = input("\nKupon kodunu giriniz (örnek: k1, k2, k3): ")
+urun_adi = input("İndirimi uygulamak istediğiniz ürünü yazınız (örnek: et): ")
+
+try:
+    araba.indirim_tek_urun(kupon_kodu, urun_adi)
+except ValueError as e:
+    print(e)
+
+print("\nGüncel sepet:")
+araba.urunlerigoster()
+
+print(f"\nToplam fiyat: {araba.toplamfiyat()} TL")

@@ -1,0 +1,19 @@
+class urun:
+    #indirimoran=0.6
+    def __init__(self,isim,fiyat,adet):
+        self.isim=isim
+        self.fiyat=fiyat
+        self.adet=adet
+    def toplam(self):
+        return self.fiyat*self.adet
+    def indirim(self,oran):
+        self.fiyat=self.fiyat*oran #indirimoran
+
+urun1=urun("muz",100,2)
+urun2=urun("kave",50,3)
+urun3=urun("et",400,5)
+
+urun1.indirim(0.7)
+print(urun1.toplam())
+
+print(urun2.toplam())

@@ -1,0 +1,18 @@
+def çift(fn):
+    def inner(*args,**kwargs):
+        fn(*args,**kwargs)
+        fn(*args,**kwargs)
+    return inner
+@çift
+def merhaba():
+    print("merhaba")
+@çift
+def selam(isim):
+    print("selam",isim)
+@çift
+def iyigunler():
+    print("iyi günler")
+
+iyigunler()
+merhaba()
+selam("cem")

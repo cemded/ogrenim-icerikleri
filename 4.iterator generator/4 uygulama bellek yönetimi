@@ -1,0 +1,28 @@
+def kare():
+    sayi=1
+    while True:
+        yield sayi**2
+        sayi +=1
+generator=kare()
+for x in generator:
+    print(x)
+    cevap=input("devam etmek için Enter' a bas , çıkmak için q ya bas")
+    if cevap.lower()=="q":
+        break
+
+# def fib_list(max):
+#     a,b=0,1
+#     count=0
+#     while count<=max:
+#         a,b=b,a+b
+#         yield b
+#         count+=1
+# for x in fib_list(100):
+#     print(x)
+
+# import sys
+# liste =[x for x in range(100)]
+# print(sys.getsizeof(liste))
+
+# gen=(x for x in range(100))
+# print(sys.getsizeof(gen))

@@ -1,0 +1,30 @@
+# def bilgi(*args, **kwargs):
+#     print("Pozisyonel argümanlar (args):")
+#     for i, arg in enumerate(args, 1):
+#         print(f"{i}. {arg}")
+
+#     print("\nAnahtar-değerli argümanlar (kwargs):")
+#     for key, value in kwargs.items():
+#         print(f"{key}: {value}")
+# bilgi("cem","python","öğreniyor",yaş=32,yer="ankara",tarih="bugün")
+
+
+def islem(tur,*sayilar,**ayarlar):
+    if tur=="toplama":
+        sonuc=sum(sayilar)
+    elif tur=="carpma":
+        sonuc=1
+        for x in sayilar:
+            sonuc*=x
+    else:
+        return "geçersiz işlem"
+    if ayarlar.get("yuvarla"):
+        sonuc=round(sonuc)
+    if ayarlar.get("negatif"):
+        sonuc= -sonuc
+    return sonuc
+print(islem("toplama", 10, 20, 30))  # 60
+print(islem("carpma", 2, 3, 4))      # 24
+print(islem("carpma", 2.3, 4, yuvarla=True))  # 10
+print(islem("toplama", 5, 10, negatif=True))  # -15
+

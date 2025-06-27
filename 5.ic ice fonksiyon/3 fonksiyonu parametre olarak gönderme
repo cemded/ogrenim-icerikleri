@@ -1,0 +1,17 @@
+def my_filter(fn,liste):
+    result=[]
+    for x in liste:
+        if fn(x):
+            result.append(x)
+    return result
+def cift_sayi(x):
+    return x%2==0
+def pozitif_sayi(x):
+    return x> 0
+
+girdi = input("Sayıları virgülle ayırarak giriniz: ")  # örn: 5,10,15
+sayilar = list(map(int, girdi.split(',')))
+
+sonuc=my_filter(cift_sayi,sayilar)
+#sonuc=my_filter(pozitif_sayi,sayilar)
+print(sonuc)

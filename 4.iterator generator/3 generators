@@ -1,0 +1,27 @@
+# def sayac(max):
+#     sayi=1
+#     sayilar=[]
+#     while sayi<=max:
+#         sayilar.append(sayi)
+#         sayi +=1
+#     return sayilar
+
+#next() veri akışı sağlar bellekten yer kazanmak için önemli
+
+def sayac(max):
+    sayi=1
+    while sayi<=max:
+        yield sayi
+        sayi +=1
+
+
+sonuc=sayac(50)
+
+# while True:
+#     try:
+#         print(next(sonuc))
+#     except StopIteration:
+#         break
+
+for x in sonuc:
+    print(x)

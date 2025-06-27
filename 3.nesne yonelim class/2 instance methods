@@ -1,0 +1,12 @@
+class player:
+    def __init__(self,can,hiz,defans):
+        self.can=can
+        self.hiz=hiz
+        self.defans=defans
+    def total(self):
+        return self.can*self.defans
+    def damage(self,oran):
+        self.can = self.can*oran
+cem=player(100,10,5)
+cem.damage(0.5)
+print(cem.total())

@@ -1,0 +1,59 @@
+import re
+
+class market:
+    def __init__(self):
+        self.urunler = {
+            "elma": 3.5,
+            "muz": 5.0,
+            "ekmek": 2.0,
+            "süt": 4.5,
+            "et": 10
+        }
+        self.sepet = {}
+
+    def sepete_ekle(self, **kwargs):
+        for urun, kg in kwargs.items():
+            if urun in self.urunler:
+                if urun in self.sepet:
+                    self.sepet[urun] += kg
+                else:
+                    self.sepet[urun] = kg
+                print(f"\n{kg:.2f} kg {urun.title()} sepete eklendi.")
+            else:
+                print(f"\n{urun.title()} kalmadı.")
+    def toplam_fiyat(self):
+        toplam=0
+        for urun,miktar in self.sepet.items():
+            fiyat=self.urunler.get(urun,0)
+            toplam+=fiyat*miktar
+        return toplam
+# Kullanıcı girdisini al
+m = market()
+girdi = input("Sepete ürün ve kilosunu ekleyin (örn: elma1kg muz0.5kg ekmek500g):\n")
+
+# Girdileri sözlüğe çevir
+girdi_dict = {}
+for x in girdi.strip().split():
+    match = re.match(r"([a-zA-ZçÇğĞıİöÖşŞüÜ]+)(\d+(?:[.,]\d+)?)(kg|g)", x)
+    if match:
+        urun = match.group(1).lower()
+        miktar = match.group(2).replace(',', '.')
+        birim = match.group(3)
+        try:
+            kg = float(miktar)
+            if birim == 'g':
+                kg /= 1000  # gramı kilograma çevir
+            girdi_dict[urun] = kg
+        except ValueError:
+            print(f"'{x}' geçerli bir sayı içermiyor.")
+    else:
+        print(f"'{x}' geçerli bir formatta değil.")
+
+# Sepete ekle
+m.sepete_ekle(**girdi_dict)
+
+# Sepeti yazdır
+print("\n📦 Sepet:", m.sepet)
+
+print("Sepet:", m.sepet)
+print(f"Toplam fiyat: {m.toplam_fiyat():.2f} TL")

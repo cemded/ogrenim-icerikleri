@@ -1,0 +1,16 @@
+class film:
+    def __init__(self,ismi,yönetmen,tarih,süre):
+        self.ismi=ismi
+        self.yönetmen=yönetmen
+        self.tarih=tarih
+        self.süre=süre
+    def __repr__(self):
+        return(f"{self.ismi},{self.yönetmen},{self.tarih}")
+    def __len__(self):
+        return self.süre
+    def __del__(self):
+        print("film silindi")
+f=film("kaçış","cem dede",2015,120)
+print(f)
+print(len(f))
+# del f

@@ -1,0 +1,27 @@
+class mynumbers:
+    def __init__(self,başla,bitir):
+        self.başla=başla
+        self.bitir=bitir
+    def __iter__(self):
+        return self
+    def __next__(self):
+        if self.başla<=self.bitir:
+            x=self.başla
+            self.başla+=1
+            return x
+        else:
+            raise StopIteration
+        
+iterator=iter(mynumbers(10,20))  #döngü oluşturarak daha az bellek kaplar
+
+# while  True:       
+#     try:
+#         print(next(iterator))
+#     except StopIteration:
+#         break
+        
+
+
+for x in mynumbers(10,20):
+   print(x)
+        

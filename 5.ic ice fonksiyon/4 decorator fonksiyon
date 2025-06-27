@@ -1,0 +1,42 @@
+def selamlama(fn):
+    def inner():
+        print("hoşgeldiniz")
+        fn()
+        print("görüşmez üzere")
+    return inner
+@selamlama       
+def gunaydin():  
+    print("\ngünaydın benim adım çınar")
+@selamlama
+def iyigunler():
+    print("iyi günler benim adım çınar")
+
+# g=selamlama(gunaydin)
+# i=selamlama(iyigunler)
+# g()
+# i()
+gunaydin()
+iyigunler()
+
+
+
+# def logla(fn):
+#     def wrapper():
+#         print(f"🔍 Fonksiyon {fn.__name__} başlatılıyor...")
+#         result = fn()
+#         print(f"✅ Fonksiyon {fn.__name__} tamamlandı.")
+#         return result
+#     return wrapper
+
+# def selamlama(fn):
+#     def inner():
+#         print("👋 Hoş geldiniz!")
+#         fn()
+#         print("👋 Görüşmek üzere!")
+#     return inner
+
+# @logla
+# @selamlama
+# def merhaba():
+#     print("Ben Çınar, nasılsın?")
+# merhaba()

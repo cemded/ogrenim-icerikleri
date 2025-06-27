@@ -1,0 +1,17 @@
+sayilar=[1,2,3,4,5]
+sayilar_str=["1","2","3","4","5"]
+isimler=["cem","beyza","rakun","fıstık"]
+kullanici=[{"ad":"cem","soyad":"dede"},{"ad":"beyza","soyad":"benzer"}]
+#karesi=[]
+#for sonuc in sayilar:
+ #   karesi.append(sonuc**2)
+#print(karesi)
+
+# def kare(sayi):
+#     return sayi**2
+#sonuc=list(map(kare,sayilar))
+sonuc=list(map(lambda x:x**2,sayilar))
+sonuc=list(map(int,sayilar_str))
+sonuc=list(map(str.capitalize,isimler))
+sonuc=list(map(lambda x:(x["ad"],x["soyad"]),kullanici))
+print(sonuc)

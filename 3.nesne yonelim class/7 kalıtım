@@ -1,0 +1,32 @@
+class kisi:
+    def __init__(self,ad_soyad,adres,yemekye):
+        self.ad_soyad=ad_soyad
+        self.adres=adres
+        self.yemekye=yemekye
+    def tanitim(self):
+        print(self.ad_soyad,self.adres,self.yemekye)
+
+class ogrenci(kisi):
+    def __init__(self, ad_soyad, adres, yemekye,ogrenci_no,derscalis):
+        super().__init__(ad_soyad, adres, yemekye)
+        self.ogrenci_no=ogrenci_no
+        self.derscalis=derscalis
+    def tanitim(self):
+        super().tanitim()
+        print(self.derscalis,self.ogrenci_no)
+class ogretmen(kisi):
+    def __init__(self, ad_soyad, adres, yemekye,brans,dersanlat):
+        super().__init__(ad_soyad, adres, yemekye)
+        self.brans=brans
+        self.dersanlat=dersanlat
+    def tanitim(self):
+        super().tanitim()
+        print(self.brans,self.dersanlat)
+
+k1=kisi("cem dede","dikmen","tavuk")
+o1=ogrenci("cem dede","dikmen","et",133,"yazılım")
+og1=ogretmen("beyza","istanbul","fıstık","matematik","anlat")
+og1.tanitim()
+print()
+o1.tanitim()
+k1.tanitim()

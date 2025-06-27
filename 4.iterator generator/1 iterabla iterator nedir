@@ -1,0 +1,18 @@
+sayilar=[1,2,3,4,5]
+
+iterator=iter(sayilar)
+
+while True:
+    try:
+        # sayi=next(iterator)
+        # print(sayi)
+        print(next(iterator))
+    except StopIteration:
+        break
+
+#s="cem dede"
+
+# for x in sayilar:
+#     print(x)
+
+# print(dir(sayilar))

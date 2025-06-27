@@ -1,0 +1,26 @@
+class urun:
+   def __init__(self,urunadi,fiyat):
+        self.urunadi=urunadi
+        if fiyat>0:
+         self._fiyat=fiyat
+        else:
+           raise ValueError("negatif değer girilmez")
+
+   @property
+   def fiyat(self):
+         return self._fiyat
+   @fiyat.setter
+   def fiyat(self,değer):
+         if değer>=0:
+               self._fiyat=değer
+         else:
+               raise ValueError("ürün fiyatı negatif olamaz")
+
+   def get_fiyat(self):
+         print(self.urunadi,self._fiyat)
+     
+       
+u=urun("telefon",1000)
+u.get_fiyat()
+#u._fiyat=2000 dışarıdan değiştirmen için
+print(u._fiyat)

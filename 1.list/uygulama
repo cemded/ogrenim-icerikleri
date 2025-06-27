@@ -1,0 +1,18 @@
+S=[x for x in range(100) if x%12==0]
+print(S)
+kelime="merhaba 1234"
+sayi=[x for x in kelime if x.isdigit()]
+print(sayi)
+sicak=[20,15,0,-5,-2]
+buzlanma=[x if x>4 else "buzlanma tehlikesi" for x in sicak]
+print(buzlanma)
+ogrenci=["cem","beyza","rakun","fıstık"]
+notl=[40,50,30,60]
+sonuc={ogrenci[x]:notl[x] for x  in range (len(ogrenci)) if notl[x]>=50}
+print(sonuc)
+
+#cikti=[]
+#for x in range(3):
+    #for y in range(3):
+        #cikti.append(x,y)
+cikti=[(x,y)for x in range(3) for y in range(3)]

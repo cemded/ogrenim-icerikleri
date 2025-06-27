@@ -1,0 +1,23 @@
+class meta(type):
+    def __new__(self,isim,temeller,değerler):
+        print(değerler)
+
+        b={}
+        for isim, val in değerler.items():
+            if isim.startswith("_"):
+                b[isim]=val
+            else:
+                b[isim.upper()]=val
+        return type(isim,temeller,b)
+class adam(metaclass=meta):
+    x=5
+    y=5
+    _AGE=30
+    def merhaba(self):
+        print("merhaba")
+
+a=adam() 
+print(a.X)          # 5
+print(a.Y)          # 5
+print(a._AGE)       # 30
+a.MERHABA()

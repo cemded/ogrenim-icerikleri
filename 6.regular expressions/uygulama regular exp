@@ -1,0 +1,20 @@
+import re
+
+text="cem dede ile python kurs tarihleri 15-Haziran-2025 15/Haziran/2025 15.06.2025 telefon numaramız 500-400-50-60.Mail adreslerimiz abc@gmail.com 12b@gmail.com.tr"
+
+#patern=r"\d\d-[a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z][a-zA-Z]-\d\d\d\d"
+#patern=r"\d{2}-[a-zA-Z]{7}-\d{4}" sabit yerine nokta koy
+paterntarih=r"\d{2}.([a-zA-Z0-9]{7}|\d{2}).\d{4}" #spesifik belirtmek istersen [-./] böyle yazabilirsin
+
+paternmail=r"[a-zA-Z0-9]{1,5}@gmail\.(com\.tr|com)" #\. sadece noktayı verir [.] göre daha hızlı çalışır sadece nokta için istiyorsan ilkini kullanman daha mantıklı
+
+paterntel=r"\d{3}-\d{3}-\d{2}-\d{2}" #\ özel anlamı devre dışı bırakır \+ gibi bir ifade kullanabilirsin \+\d{2} gibi (\s boşluk temsili)
+
+karsilik=re.finditer(paterntel,text)
+karsilik=re.finditer(paterntarih,text)
+#karsilik=re.findall(paterntel,text)
+# karsilik=re.finditer(paternmail,text)
+# for x in karsilik:
+#     print(x.group())
+for x in karsilik:
+    print(x.group())

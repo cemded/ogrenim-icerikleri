@@ -1,0 +1,22 @@
+sayilar=[1,50,20,11]
+#sayilar.sort()
+sonuc=sorted(sayilar)
+sonuc=sorted(sayilar, reverse=True)
+
+
+L=[{"username":"cem dede","posts":["post1","post2","post3"],"mail":"bos@.com"},
+   {"username":"beyza benzer","posts":["post1","post2"],"mail":"bos2@.com"},
+   {"username":"fıstık rakun","posts":["post1"]}]
+sonuc=sorted(L,key=len) #liste sayısına göre sıralama yapar
+sonuc=sorted(L,key=lambda x:x["username"])
+sonuc=list(map(lambda x:f"{x["username"]},posts:{len(x["posts"])}",sorted(L,key=lambda x: len(x["posts"]))))
+
+kurs=[{"title":"python","count":10000},
+      {"title":"web","count":20000},
+      {"title":"java","count":5000}]
+
+sonuc=sorted(kurs,key=lambda x: x["count"])
+sonuc=list(map(lambda x:f"{x["title"]},{x["count"]}",sorted(kurs,key=lambda x: x["count"])))
+
+
+print(sonuc)

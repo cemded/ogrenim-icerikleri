@@ -1,0 +1,21 @@
+# def outer(numara1):
+#     def inner(numara1):
+#         print(numara1)
+#     inner(numara1)
+# outer(10)
+
+def faktoriyel(sayi):
+    if not isinstance(sayi,int):
+        raise TypeError("sayi tam sayi olmalıdır")
+    if not sayi >=0:
+        raise ValueError("numara 0 veya pozitif olmalıdır")
+    def inner_faktoriyel(sayi):
+        if sayi<=1:
+            return 1
+        return sayi * inner_faktoriyel(sayi-1)
+    return inner_faktoriyel(sayi)
+sonuc=faktoriyel(6)
+try:
+   print(sonuc)
+except Exception as ex:
+    print(ex)

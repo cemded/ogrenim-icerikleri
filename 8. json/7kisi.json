@@ -1,0 +1,22 @@
+{
+    "kullanici": {
+        "cem dede": {
+            "ad": "cem",
+            "soyad": "dede"
+        },
+        "beyza benzer": {
+            "ad": "beyza",
+            "soyad": "benzer"
+        }
+    },
+    "products": {
+        "1": {
+            "title": "patates1",
+            "price": 10
+        },
+        "2": {
+            "title": "patates2",
+            "price": 20
+        }
+    }
+}

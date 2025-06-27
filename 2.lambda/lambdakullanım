@@ -1,0 +1,22 @@
+def kare(a):
+    return a**2
+sonuc=kare(5)
+
+kareal=(lambda a:a**2)(3)
+print(kareal)
+
+
+toplama=lambda a,b,c:a+b+c
+sonuc=toplama(1,3,5)
+print(sonuc)
+
+def islev(x):
+    return lambda y:y*x
+carpma10=islev(10)
+deneme=carpma10(4)
+print(deneme)
+
+def toplam(a,b,c):
+    return a+b+c
+sonuc=toplam(1,2,3)
+print(sonuc)

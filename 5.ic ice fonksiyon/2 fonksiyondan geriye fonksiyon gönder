@@ -1,0 +1,51 @@
+# def usalma(taban):
+#     def inner(us):
+#         return taban**us
+#     return inner
+# sonuc=usalma(2)(3) # fonksiyon geri döndürünce yanına değer vermek içerideki fonksiyona değer atıyor
+# print(sonuc)
+
+# def yetki(sayfa):
+#     def inner(rol):
+#         if rol =="admin":
+#             return f"{rol} rolu {sayfa} sayfasına ulaşabilir"
+#         else:
+#             return f"{rol} rolu {sayfa} sayfasına ulaşamaz"
+#     return inner
+
+# y=yetki("sayfa")("admin")
+# print(y)
+
+def islem(adi):
+    def topla(*arg):
+        topla=0
+        for x in arg:
+            topla +=x
+        return topla
+    def carpim(*arg):
+        carpim=1
+        for x in arg:
+            carpim*=x
+        return carpim
+    if adi == "topla":
+        return topla
+    elif adi =="carpim":
+        return carpim
+    else:
+        print("geçersiz işlem")
+        return None
+# t=islem("toplama")(10,20,30,40) fonksiyonu tek sefer kullanıcaksam
+# print(t)
+toplama=islem("topla")
+carpma=islem("carpim")    #tekrar tekrar kullanım için
+sonuc=carpma(10,3,4)
+print(sonuc)
+
+# def topla(x=0):    sonsuz örnek
+#     def iceri(y=None):
+#         nonlocal x
+#         if y is None:
+#             return x
+#         x += y
+#         return iceri
+#     return iceri

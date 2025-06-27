@@ -1,0 +1,19 @@
+# sayilar=[1,2,3,-1,-2,-3]
+
+# sonuc=list(filter(lambda x:x<0,sayilar))
+# sonuc=list(filter(lambda x:x%2==1,sayilar))
+
+# isimler=["cem","beyza","rakun","fıstık"]
+
+# sonuc=list(filter(lambda x : x[0]=="b",isimler))
+# buyuk=list(map(lambda x: x.upper(),sonuc))
+# print(buyuk)
+
+kullanicilar=[{"username":"cem dede","posts":["post1","post2","post3"]},
+              {"username":"beyza benzer","posts":["post1","post2"]},
+              {"username":"fıstık rakun","posts":["post1"]}]
+
+filtuser=list(filter(lambda x: len(x["posts"])> 2,kullanicilar))
+sonuc=list(map(lambda x: x["username"].title() ,filtuser))
+#sonuc=[x["username"].title() for x in kullanicilar if len(x["posts"]) > 2]
+print(sonuc)

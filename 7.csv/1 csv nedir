@@ -1,0 +1,15 @@
+import csv
+
+# Data to write
+data = [
+    ["Name", "Age", "Country"],
+    ["Alice", 30, "USA"],
+    ["Bob", 25, "UK"]
+]
+
+# Create a CSV file
+with open("example.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerows(data)
+
+print("CSV file created.")

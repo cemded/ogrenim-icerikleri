@@ -1,0 +1,20 @@
+import re
+
+text="a12b 123 xyz @% 45 "
+
+#pattern=r"\d\d\d"
+#pattern=r"\d+" #1 basamak ve üzeri sayıları bulur
+#pattern=r"\d*" 0 ve üzeri herşeyi alır boşluklar dahil
+#pattern=r"\d{2,3}" #kaç basamak arası olsun istiyorsan böyle yazabilirsin
+#pattern=r"\d.\d" buda 3 basamak gibi ama nokta herhangi bir karakter olabilir örn 3a3
+#pattern=r"[a-zA-Z]" a danz ye harfler büyük ve küçük
+pattern=r"\d|[a-z]" #hem sayı hem harfler
+#pattern=r"\d\w\w" kaç basamak yazarsan ona göre 0-9 arası bir sayi ve harf verir örn 12b
+#pattern=r"^a\d\w\w" listenin en başını alır $ işareti en sonunu en sona koyarsan
+
+
+match=re.search(pattern,text) #obje
+match=re.findall(pattern,text) #liste
+match=re.finditer(pattern,text) #iterator
+for x in match:
+    print(x.group())

@@ -1,0 +1,18 @@
+l=[]
+for x in range(5):
+    if x%2==1:
+        l.append(x)
+#print(l)
+
+l2=[x for x in range(5) if x%2==1]
+#print(l2)
+
+fiyat=[0,10,20,100,0,40,70]
+#vergi=[]
+#for x in fiyat:
+    #if(x>0):
+        #vergi.append(x*1.20)
+vergi=[x*1.20 if x>0 else "vergi yok" for x in fiyat]
+
+print(vergi)
+
